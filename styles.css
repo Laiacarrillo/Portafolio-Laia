@@ -1,0 +1,268 @@
+:root {
+    --primary-color: #ff6600;
+    --background-color: #1a1f25;
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para los textos */
+.hero-content h1,
+.hero-content p {
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+.hero-content h1 {
+    animation-delay: 0.3s;
+}
+
+.hero-content p {
+    animation-delay: 0.6s;
+}
+
+/* Animación para el avatar y el círculo naranja */
+.hero-image .avatar-circle,
+.hero-image .avatar {
+    opacity: 0;
+    animation: fade-in-up 1.2s ease-out forwards;
+}
+
+.hero-image .avatar-circle {
+    animation-delay: 0.8s;
+}
+
+.hero-image .avatar {
+    animation-delay: 1s;
+}
+
+/* Animación para los íconos de redes sociales */
+.social-links a {
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+/* Agregar un retraso progresivo a cada ícono */
+.social-links a:nth-child(1) { animation-delay: 1.2s; } /* Facebook */
+.social-links a:nth-child(2) { animation-delay: 1.4s; } /* Instagram */
+.social-links a:nth-child(3) { animation-delay: 1.6s; } /* LinkedIn */
+
+/* Animación para el botón "My Portfolio" */
+.portfolio-btn {
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+    animation-delay: 1.8s;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+}
+
+.logo {
+    width:60px;
+    height:30px;
+}
+
+.small-logo {
+    width: 300%;
+    height: 300%;
+    right: 230%;
+    top: -100%;
+    position: relative;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: calc(100vh - 100px);
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.name {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.profession {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.description {
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.portfolio-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-circle {
+    width: 350px;
+    height: 350px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+.avatar {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 100px;
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+    .hero-content {
+        margin-bottom: 2rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .avatar-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .avatar {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .name {
+        font-size: 3rem;
+    }
+
+    .avatar-circle {
+        width: 250px;
+        height: 250px;
+    }
+
+    .avatar {
+        width: 300px;
+        height: 300px;
+    }
+}
