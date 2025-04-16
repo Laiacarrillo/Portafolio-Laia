@@ -27,21 +27,41 @@
 
 <body class="bg-background text-text font-sans">
 
-    <!-- NAV -->
-    <header class="bg-background fixed w-full z-50">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-            <div class="logo">
-                <img src="img/logo.png" alt="Logo" class="small-logo">
-            </div>
-            <ul class="flex space-x-10 text-white">
-                <li><a href="#inicio" class="hover:text-primary">Inicio</a></li>
-                <li><a href="#sobremi" class="hover:text-primary">Sobre mí</a></li>
-                <li><a href="#habilidades" class="hover:text-primary">Habilidades</a></li>
-                <li><a href="#proyectos" class="hover:text-primary">Proyectos</a></li>
-                <li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- NAV -->
+<header class="bg-background fixed w-full z-50 shadow-md">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo" class="small-logo" />
+      </div>
+  
+      <!-- Menú Escritorio -->
+      <ul class="hidden md:flex space-x-10 text-white">
+        <li><a href="#inicio" class="hover:text-primary">Inicio</a></li>
+        <li><a href="#sobremi" class="hover:text-primary">Sobre mí</a></li>
+        <li><a href="#habilidades" class="hover:text-primary">Habilidades</a></li>
+        <li><a href="#proyectos" class="hover:text-primary">Proyectos</a></li>
+        <li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
+      </ul>
+  
+      <!-- Botón hamburguesa -->
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+  
+    <!-- Menú Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center bg-background text-white px-6 pb-4 space-y-4">
+      <a href="#inicio" class="hover:text-primary">Inicio</a>
+      <a href="#sobremi" class="hover:text-primary">Sobre mí</a>
+      <a href="#habilidades" class="hover:text-primary">Habilidades</a>
+      <a href="#proyectos" class="hover:text-primary">Proyectos</a>
+      <a href="#contacto" class="hover:text-primary">Contacto</a>
+    </div>
+  </header>
+  
 
     <!-- INICIO -->
     <main id="inicio" class="min-h-screen flex items-center bg-background text-left pt-20">
@@ -58,38 +78,6 @@
                 <p class="text-gray-300 text-lg">
                     Transformando ideas en código y código en soluciones.
                 </p>
-
-                <!-- Iconos sociales -->
-                <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/laiacarrillo._/" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-primary">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-primary">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/Laiacarrillo" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-primary">
-                            <path
-                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                            </path>
-                        </svg>
-                    </a>
-                </div>
 
                 <!-- Botón -->
                 <a href="#contacto"
@@ -142,118 +130,135 @@
     <script src="script.js"> </script>
     
     <!-- HABILIDADES -->
-    <section id="habilidades" class="py-20 bg-background px-16">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-10 about-title">Habilidades</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          
-          <!-- HTML -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.simpleicons.org/html5" alt="HTML" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">HTML</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Estructura semántica y accesible para sitios web modernos.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- CSS -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.simpleicons.org/css3" alt="CSS" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">CSS</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Diseños responsivos y animaciones fluidas para experiencias visuales atractivas.</p>
+    <section id="habilidades" class="py-20 bg-background px-6 sm:px-10 md:px-16">
+        <div class="max-w-6xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-bold text-white mb-10 about-title">Habilidades</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      
+            <!-- HTML -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.simpleicons.org/html5" alt="HTML" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">HTML</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Estructura semántica y accesible para sitios web modernos.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-    
-          <!-- Java -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">Java</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Desarrollo de aplicaciones robustas y escalables con orientación a objetos.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Python -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">Python</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Análisis de datos, automatización y desarrollo backend eficiente.</p>
+      
+            <!-- CSS -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.simpleicons.org/css3" alt="CSS" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">CSS</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Diseños responsivos y animaciones fluidas para experiencias visuales atractivas.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-    
-          <!-- JavaScript -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">JavaScript</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Interactividad dinámica y experiencias de usuario modernas en aplicaciones web.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- MySQL -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">MySQL</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Gestión eficiente de bases de datos relacionales y optimización de consultas.</p>
+      
+            <!-- Java -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">Java</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Desarrollo de aplicaciones robustas y escalables con orientación a objetos.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-    
-          <!-- React.js -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.simpleicons.org/react" alt="React.js" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">React.js</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Interfaces de usuario componetizadas y reactivas para aplicaciones modernas.</p>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Spring Boot -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <img src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" class="w-12 h-12 mb-4" />
-                <p class="text-white text-lg font-medium">Spring Boot</p>
-              </div>
-              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-                <p class="text-white text-base leading-relaxed font-medium">Desarrollo rápido de microservicios y APIs REST con Java.</p>
+      
+            <!-- Python -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">Python</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Análisis de datos, automatización y desarrollo backend eficiente.
+                  </p>
+                </div>
               </div>
             </div>
+      
+            <!-- JavaScript -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">JavaScript</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Interactividad dinámica y experiencias de usuario modernas en aplicaciones web.
+                  </p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- MySQL -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">MySQL</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Gestión eficiente de bases de datos relacionales y optimización de consultas.
+                  </p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- React.js -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.simpleicons.org/react" alt="React.js" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">React.js</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Interfaces de usuario componetizadas y reactivas para aplicaciones modernas.
+                  </p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Spring Boot -->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                  <img src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" class="w-12 h-12 mb-4" />
+                  <p class="text-white text-lg font-medium">Spring Boot</p>
+                </div>
+                <div class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
+                  <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
+                    Desarrollo rápido de microservicios y APIs REST con Java.
+                  </p>
+                </div>
+              </div>
+            </div>
+      
           </div>
-    
         </div>
-      </div>
-    </section>
+      </section>
+      
     
 
     <!-- PROYECTOS -->
@@ -351,26 +356,55 @@
       </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="py-20 bg-background px-6">
+    <section id="contacto" class="py-24 bg-background px-6">
         <div class="max-w-xl mx-auto text-center text-white">
-            <h2 class="text-3xl font-bold mb-8">Contáctame</h2>
-            <form class="space-y-6">
-                <input type="text" placeholder="Nombre"
-                    class="w-full p-3 rounded bg-primary bg-opacity-20 text-white placeholder-white" />
-                <input type="email" placeholder="Correo"
-                    class="w-full p-3 rounded bg-primary bg-opacity-20 text-white placeholder-white" />
-                <textarea placeholder="Mensaje" rows="5"
-                    class="w-full p-3 rounded bg-primary bg-opacity-20 text-white placeholder-white"></textarea>
-                <button type="submit"
-                    class="bg-primary hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition">
-                    Enviar
-                </button>
-            </form>
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-10 about-title">Contáctame</h2>
         </div>
+         <!-- Iconos sociales -->
+         <div class="flex space-x-4 flex justify-center">
+            <a href="https://www.instagram.com/laiacarrillo._/" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-primary">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-primary">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                    </path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="https://github.com/Laiacarrillo" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-primary">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://mail.google.com/mail/u/0/?fs=1&to=laiacarrilloes@gmail.com&su=Contacto...&tf=cm" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-primary">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a> 
+        </div>
+        <br>
+        <h2 class="flex justify-center">Laiacarrilloes@gmail.com | +57 310 570 8389</h2>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-primary py-6 text-center text-white">
+    <footer class="bg-primary py-4 text-center text-white">
         <p>© 2025 Laia Dev. Todos los derechos reservados.</p>
     </footer>
 

@@ -66,3 +66,11 @@
         // Verificar también al cargar la página
         handleScrollAnimations();
     });
+
+    // Función para mostrar/ocultar el menú móvil
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
