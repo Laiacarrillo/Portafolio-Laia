@@ -1,45 +1,380 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laia- Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <nav>
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo" class="small-logo">
-        </div>
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <main class="hero">
-        <div class="hero-content">
-            <h1>Hello, It's Me<br><span class="name">Laia</span></h1>
-            <p class="profession">I'm a <span class="highlight">Programmer!</span></p>
-            <p class="description">Transforming ideas into code and code into solutions.</p>
-            
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/15kwXJbDn7/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/laiacarrillo._?igsh=aHJxejc4N212M2g%3D&utm_source=qr" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://co.linkedin.com/in/laia-carrillo-18116a322" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/Laiacarrillo" class="social-icon"><i class="fab fa-github"></i></a>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio Laia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#983ddd',
+                        background: '#171a21',
+                        text: '#ffffff'
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px #983ddd',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-text font-sans">
+
+    <!-- NAV -->
+    <header class="bg-background fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo" class="small-logo">
+            </div>
+            <ul class="flex space-x-10 text-white">
+                <li><a href="#inicio" class="hover:text-primary">Inicio</a></li>
+                <li><a href="#sobremi" class="hover:text-primary">Sobre mí</a></li>
+                <li><a href="#habilidades" class="hover:text-primary">Habilidades</a></li>
+                <li><a href="#proyectos" class="hover:text-primary">Proyectos</a></li>
+                <li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- INICIO -->
+    <main id="inicio" class="min-h-screen flex items-center bg-background text-left pt-20">
+        <div
+            class="max-w-6xl w-full mx-auto px-8 md:px-16 flex flex-col-reverse md:flex-row items-center justify-center gap-16">
+
+            <!-- Texto -->
+            <div class="space-y-8 max-w-xl md:ml-12 hero-content">
+                <h1 class="text-4xl md:text-6xl font-bold text-white">
+                    Hello, It's Me <br>
+                    <span>Laia Carrillo</span>
+                </h1>
+                <h2 class="text-2xl text-primary font-semibold typing"> Desarrolladora Full-Stack</h2>
+                <p class="text-gray-300 text-lg">
+                    Transformando ideas en código y código en soluciones.
+                </p>
+
+                <!-- Iconos sociales -->
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/laiacarrillo._/" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Laiacarrillo" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Botón -->
+                <a href="#contacto"
+                    class="inline-block bg-primary hover:opacity-90 text-white font-bold py-3 px-8 rounded-full transition mt-4 portfolio-btn">
+                    Contáctame
+                </a>
             </div>
 
-            <a href="#portfolio" class="portfolio-btn">My Portfolio</a>
-        </div>
-        <div class="hero-image">
-            <div class="avatar-circle"></div>
-            <!-- <img src="" alt="Avatar Laia" class="avatar"> -->
+            <!-- Imagen -->
+            <div class="flex justify-center md:mr-12 mb-8 md:mb-0 hero-image">
+                <div class="rounded-full p-2 bg-primary avatar-circle" style="padding: 8px; margin: 20px;">
+                    <div class="rounded-full border-4 border-white overflow-hidden avatar">
+                        <img src="img/Portafolio.png" alt="Laia" class="w-64 h-64 object-cover" />
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobremi" class="py-20 bg-background flex items-center px-5 animate-section">
+        <div class="max-w-7xl w-full mx-auto flex flex-wrap md:flex-nowrap items-center">
+            <!-- Imagen a la izquierda con animación -->
+            <div class="w-full md:w-1/3 flex justify-center mb-10 md:mb-0 about-image animate-item">
+                <img src="img/SobreMi.png" alt="Foto" class="max-w-[400px] rounded-2xl shadow-lg" />
+            </div>
+    
+            <!-- Texto a la derecha con animación -->
+            <div class="w-full md:w-2/3 md:pl-16 about-content">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 about-title">
+                    <span class="title-word animate-item">Sobre</span> 
+                    <span class="text-primary title-word animate-item">Mí</span>
+                </h2>
+                <p class="text-lg leading-relaxed text-justify about-text animate-item">
+                    Profesional comprometida con el desarrollo de soluciones digitales, con experiencia
+                    como desarrolladora <span class="font-bold text-purple-400">Full-Stack</span>. Mi objetivo es
+                    contribuir al diseño y construcción
+                    de <span class="font-bold text-purple-400">plataformas tecnológicas</span> funcionales, accesibles y
+                    de alto impacto.
+                    <span class="font-bold text-purple-400">Me destaco</span> por mi disciplina, pensamiento analítico y
+                    capacidad de trabajo en equipo.
+                    Aplico buenas prácticas de accesibilidad, diseño responsivo y estructura de código limpio.
+                    <span class="font-bold text-purple-400">Me motiva</span> aprender constantemente y aportar al
+                    crecimiento de los entornos digitales en los que participo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"> </script>
+    
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="py-20 bg-background px-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-10 about-title">Habilidades</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          
+          <!-- HTML -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/html5" alt="HTML" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">HTML</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Estructura semántica y accesible para sitios web modernos.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- CSS -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/css3" alt="CSS" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">CSS</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Diseños responsivos y animaciones fluidas para experiencias visuales atractivas.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Java -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">Java</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Desarrollo de aplicaciones robustas y escalables con orientación a objetos.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Python -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/python" alt="Python" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">Python</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Análisis de datos, automatización y desarrollo backend eficiente.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- JavaScript -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">JavaScript</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Interactividad dinámica y experiencias de usuario modernas en aplicaciones web.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- MySQL -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">MySQL</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Gestión eficiente de bases de datos relacionales y optimización de consultas.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- React.js -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/react" alt="React.js" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">React.js</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Interfaces de usuario componetizadas y reactivas para aplicaciones modernas.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Spring Boot -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <img src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" class="w-12 h-12 mb-4" />
+                <p class="text-white text-lg font-medium">Spring Boot</p>
+              </div>
+              <div class="flip-card-back bg-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
+                <p class="text-white text-base leading-relaxed font-medium">Desarrollo rápido de microservicios y APIs REST con Java.</p>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="py-20 bg-primary px-6">
+        <div class="max-w-6xl mx-auto text-center text-white">
+          <h2 class="text-4xl md:text-6xl font-bold text-white mb-10 about-title">Proyectos</h2>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <!-- Proyecto 1 -->
+            <div class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
+              <div class="relative">
+                <img src="https://via.placeholder.com/600x340" alt="Vista previa del proyecto 1" class="w-full h-48 object-cover" />
+                <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
+                  Front-end
+                </div>
+              </div>
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold mb-2 text-white">ACME Education desarrolló el proyecto SISGESA</h3>
+                <p class="text-gray-300 mb-4">Aplicación web para organizar y gestionar tareas con autenticación de usuarios, categorías personalizables y estadísticas de productividad.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Python</span>
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Json</span>
+                </div>
+                <a href="https://github.com/Laiacarrillo/PROYECTO_ACME" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-opacity-80 text-white font-medium py-2 px-4 rounded-lg transition-colors w-full text-center">
+                  Ver proyecto
+                </a>
+              </div>
+            </div>
+            
+            <!-- Proyecto 2 -->
+            <div class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
+              <div class="relative">
+                <img src="https://via.placeholder.com/600x340" alt="Vista previa del proyecto 2" class="w-full h-48 object-cover" />
+                <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
+                  Full-Stack
+                </div>
+              </div>
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold mb-2 text-white">Reservaciones del Hotel el Rincón de Camila</h3>
+                <p class="text-gray-300 mb-4">Sitio web responsive que permite consultar, reservar y cancelar habitaciones. Usa `json-server` para guardar datos y está desplegado en GitHub Pages.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">HTML/CSS</span>
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">JavaScript</span>
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Firebase</span>
+                </div>
+                <a href="https://github.com/Laiacarrillo/Proyecto_JavaScript" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-opacity-80 text-white font-medium py-2 px-4 rounded-lg transition-colors w-full text-center">
+                  Ver proyecto
+                </a>
+              </div>
+            </div>
+            
+            <!-- Proyecto 3 -->
+            <div class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
+              <div class="relative">
+                <img src="https://via.placeholder.com/600x340" alt="Vista previa del proyecto 3" class="w-full h-48 object-cover" />
+                <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
+                  Back-end
+                </div>
+              </div>
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold mb-2 text-white">El Sakila</h3>
+                <p class="text-gray-300 mb-4">Sistema de Alquiler de Películas, usa la base de datos Sakila para consultas SQL, funciones, triggers y eventos, enfocados en gestionar alquileres, clientes y películas..</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">StarUML</span>
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">MySQL</span>
+                </div>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-opacity-80 text-white font-medium py-2 px-4 rounded-lg transition-colors w-full text-center">
+                  Ver proyecto
+                </a>
+              </div>
+            </div>
+            
+            <!-- Proyecto 4 -->
+            <div class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl">
+              <div class="relative">
+                <img src="https://via.placeholder.com/600x340" alt="Vista previa del proyecto 4" class="w-full h-48 object-cover" />
+                <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
+                  Back-end
+                </div>
+              </div>
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold mb-2 text-white">Aplicación de Fitness</h3>
+                <p class="text-gray-300 mb-4">App móvil para seguimiento de rutinas de ejercicio, nutrición personalizada y análisis de progreso con gráficos interactivos.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">React Native</span>
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Redux</span>
+                  <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Firebase</span>
+                </div>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary hover:bg-opacity-80 text-white font-medium py-2 px-4 rounded-lg transition-colors w-full text-center">
+                  Ver proyecto
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-20 bg-background px-6">
+        <div class="max-w-xl mx-auto text-center text-white">
+            <h2 class="text-3xl font-bold mb-8">Contáctame</h2>
+            <form class="space-y-6">
+                <input type="text" placeholder="Nombre"
+                    class="w-full p-3 rounded bg-primary bg-opacity-20 text-white placeholder-white" />
+                <input type="email" placeholder="Correo"
+                    class="w-full p-3 rounded bg-primary bg-opacity-20 text-white placeholder-white" />
+                <textarea placeholder="Mensaje" rows="5"
+                    class="w-full p-3 rounded bg-primary bg-opacity-20 text-white placeholder-white"></textarea>
+                <button type="submit"
+                    class="bg-primary hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition">
+                    Enviar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary py-6 text-center text-white">
+        <p>© 2025 Laia Dev. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
+
 </html>

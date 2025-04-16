@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #ff6600;
-    --background-color: #1a1f25;
+    --primary-color: #983ddd;
+    --background-color: #171a21;
     --text-color: #ffffff;
 }
 
@@ -10,15 +10,73 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
+
+.social-icon {
+    border: 2px solid #983ddd;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.7s ease;
+}
+
+.social-icon:hover {
+    background-color: #983ddd;
+}
+
+.name-highlight {
+    background-color: #983ddd;
+    padding: 5px 15px;
+    box-shadow: 0 0 20px #983ddd;
+    display: inline-block;
+}
+
+.small-logo {
+    width: 130px;
+    height: 65px;
+}
+
+/* Animaciones */
 @keyframes fade-in-up {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Animación para escribir el texto */
+@keyframes typing-effect {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 80%;
+        /* Llenar el ancho del texto */
+    }
+
+    100% {
+        width: 0%;
+        /* Mantener el texto visible */
+    }
+}
+
+.typing {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: 2px solid #983ddd;
+    /* Barra de cursor delgada */
+    animation: typing-effect 4s steps(20) infinite normal both;
+    /* Ajustado para no dejar espacio */
 }
 
 /* Animación para los textos */
@@ -36,7 +94,7 @@
     animation-delay: 0.6s;
 }
 
-/* Animación para el avatar y el círculo naranja */
+/* Animación para el avatar y el círculo */
 .hero-image .avatar-circle,
 .hero-image .avatar {
     opacity: 0;
@@ -51,6 +109,12 @@
     animation-delay: 1s;
 }
 
+.avatar {
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
 /* Animación para los íconos de redes sociales */
 .social-links a {
     opacity: 0;
@@ -58,212 +122,259 @@
 }
 
 /* Agregar un retraso progresivo a cada ícono */
-.social-links a:nth-child(1) { animation-delay: 1.2s; } /* Facebook */
-.social-links a:nth-child(2) { animation-delay: 1.4s; } /* Instagram */
-.social-links a:nth-child(3) { animation-delay: 1.6s; } /* LinkedIn */
-.social-links a:nth-child(4) { animation-delay: 1.6s; } /* Github */
+.social-links a:nth-child(1) {
+    animation-delay: 1.2s;
+}
 
-/* Animación para el botón "My Portfolio" */
+.social-links a:nth-child(2) {
+    animation-delay: 1.4s;
+}
+
+.social-links a:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+/* Animación para el botón "Contáctame" */
 .portfolio-btn {
     opacity: 0;
     animation: fade-in-up 1s ease-out forwards;
     animation-delay: 1.8s;
 }
 
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    min-height: 100vh;
-    overflow-x: hidden;
+/* Animación de la imagen (zoom in) */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 10%;
+/* Animación para el texto (fade-up) */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.logo {
-    width:60px;
-    height:30px;
+/* Aplicar las animaciones solo cuando los elementos son visibles */
+.img-anim {
+    opacity: 0;
+    animation: zoomIn 1s forwards;
+    visibility: hidden;
+    /* Oculto inicialmente */
 }
 
-.small-logo {
-    width: 300%;
-    height: 300%;
-    right: 230%;
-    top: -100%;
+.text-anim {
+    opacity: 0;
+    animation: fadeUp 1s forwards;
+    visibility: hidden;
+    /* Oculto inicialmente */
+}
+
+/* Cuando el elemento está visible en la pantalla */
+.visible {
+    visibility: visible;
+    animation-play-state: running;
+}
+
+/* Estilos base para los elementos animados */
+.animate-item {
+    opacity: 0;
+}
+
+/* Animación para la imagen */
+.about-image.animate {
+    animation: slide-in-left 1s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación para el título */
+.title-word.animate:nth-child(1) {
+    animation: pop-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.3s;
+}
+
+.title-word.animate:nth-child(2) {
+    animation: pop-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.6s;
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para el texto */
+.about-text.animate {
+    animation: fade-in-up 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de brillo para los elementos destacados */
+.text-purple-400 {
     position: relative;
-}
-
-nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    color: var(--primary-color);
-}
-
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10%;
-    height: calc(100vh - 100px);
-}
-
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.name {
-    font-size: 4rem;
-    font-weight: bold;
-}
-
-.profession {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.highlight {
-    color: var(--primary-color);
-}
-
-.description {
-    color: #a0a0a0;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+.text-purple-400:hover {
+    text-shadow: 0 0 8px rgba(152, 61, 221, 0.6);
 }
 
-.portfolio-btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: transform 0.3s ease;
+section[id] {
+    scroll-margin-top: 130px;
 }
 
-.portfolio-btn:hover {
-    transform: translateY(-3px);
-}
+/* Estilos para las tarjetas con efecto flip */
+.flip-card {
+    perspective: 1000px;
+    height: 160px;
+    width: 100%;
+  }
 
-.hero-image {
-    flex: 1;
+  .flip-card-inner {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
 
-.avatar-circle {
-    width: 350px;
-    height: 350px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
     position: absolute;
-    z-index: 1;
-}
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.avatar {
-    width: 500px;
-    height: 500px;
-    object-fit: contain;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 100px;
-}
+  .flip-card-front {
+    color: white;
+  }
 
-@media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 2rem;
+  .flip-card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+    /* Estilos base para los elementos animados */
+    .animate-item {
+        opacity: 0;
     }
-
-    .hero-content {
-        margin-bottom: 2rem;
+    
+    /* Animación para la imagen */
+    .about-image.animate {
+        animation: slide-in-left 1s ease-out forwards;
     }
-
-    .social-links {
-        justify-content: center;
+    
+    @keyframes slide-in-left {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
-
-    .avatar-circle {
-        width: 300px;
-        height: 300px;
+    
+    /* Animación para el título */
+    .title-word.animate:nth-child(1) {
+        animation: pop-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation-delay: 0.3s;
     }
-
-    .avatar {
-        width: 400px;
-        height: 400px;
+    
+    .title-word.animate:nth-child(2) {
+        animation: pop-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation-delay: 0.6s;
     }
-}
-
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
+    
+    @keyframes pop-in {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-
-    h1 {
-        font-size: 2rem;
+    
+    /* Animación para el texto */
+    .about-text.animate {
+        animation: fade-in-up 1s ease-out forwards;
+        animation-delay: 0.8s;
     }
-
-    .name {
-        font-size: 3rem;
+    
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-
-    .avatar-circle {
-        width: 250px;
-        height: 250px;
+    
+    /* Efecto de brillo para los elementos destacados */
+    .text-purple-400 {
+        position: relative;
+        transition: all 0.3s ease;
     }
-
-    .avatar {
-        width: 300px;
-        height: 300px;
+    
+    .text-purple-400:hover {
+        text-shadow: 0 0 8px rgba(152, 61, 221, 0.6);
     }
-}
