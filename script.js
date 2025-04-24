@@ -58,14 +58,6 @@ function isElementInViewport(el) {
     }
   }
   
-  // Función para volver arriba al hacer clic en el botón
-  document.getElementById("back-to-top")?.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  })
-  
   // Función para animar los contadores
   function animateCounters() {
     const counters = document.querySelectorAll(".counter")
