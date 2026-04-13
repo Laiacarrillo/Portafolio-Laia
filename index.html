@@ -1,738 +1,848 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio Laia</title>
+  <meta name="description" content="Laia Vianey Carrillo Estupiñán — Desarrolladora Full Stack. Portfolio profesional en Barcelona, España." />
+  <title>Laia Carrillo · Desarrolladora Full Stack</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#983ddd',
-            secondary: '#7a2cbf',
-            background: '#171a21',
-            darkAccent: '#1e293b',
-            text: '#ffffff'
-          },
-          boxShadow: {
-            'glow': '0 0 20px #983ddd',
+            primary: '#9333ea',
+            secondary: '#7c3aed',
+            accent: '#c084fc',
+            background: '#0d0f14',
+            surface: '#13161e',
+            card: '#1a1d28',
+            border: '#252836',
+            muted: '#8892a4',
           },
           fontFamily: {
-            'poppins': ['Poppins', 'sans-serif'],
+            sans: ['DM Sans', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
           },
+          boxShadow: {
+            'glow-sm': '0 0 12px rgba(147,51,234,0.3)',
+            'glow': '0 0 25px rgba(147,51,234,0.4)',
+            'glow-lg': '0 0 50px rgba(147,51,234,0.3)',
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+          }
         }
       }
     }
   </script>
 </head>
 
-<body class="bg-background text-text font-poppins">
+<body class="bg-background text-white font-sans overflow-x-hidden">
 
-  <!-- NAV -->
-  <header class="bg-background/90 backdrop-blur-md fixed w-full z-50 shadow-md transition-all duration-300" id="navbar">
-    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <div class="logo">
-        <img src="img/logo.png" alt="Logo" class="small-logo" />
-      </div>
+  <!-- ─────────────── NAVBAR ─────────────── -->
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-500">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-5">
+      <!-- Logo / Name -->
+      <a href="#inicio" class="font-display text-xl tracking-tight text-white hover:text-accent transition-colors">
+        laia<span class="text-primary">.</span>dev
+      </a>
 
-      <!-- Menú Escritorio -->
-      <ul class="hidden md:flex space-x-10 text-white">
-        <li><a href="#inicio" class="nav-link relative">Inicio</a></li>
-        <li><a href="#sobremi" class="nav-link relative">Sobre mí</a></li>
-        <li><a href="#habilidades" class="nav-link relative">Habilidades</a></li>
-        <li><a href="#proyectos" class="nav-link relative">Proyectos</a></li>
-        <li><a href="#contacto" class="nav-link relative">Contacto</a></li>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-8 text-sm text-muted font-medium">
+        <li><a href="#inicio"     class="nav-link hover:text-white transition-colors">Inicio</a></li>
+        <li><a href="#sobremi"    class="nav-link hover:text-white transition-colors">Sobre mí</a></li>
+        <li><a href="#habilidades" class="nav-link hover:text-white transition-colors">Habilidades</a></li>
+        <li><a href="#proyectos"  class="nav-link hover:text-white transition-colors">Proyectos</a></li>
+        <li>
+          <a href="#contacto" class="px-5 py-2 rounded-full bg-primary hover:bg-secondary text-white text-sm font-semibold transition-all duration-300 shadow-glow-sm hover:shadow-glow">
+            Contacto
+          </a>
+        </li>
       </ul>
 
-      <!-- Botón hamburguesa -->
-      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+      <!-- Hamburger -->
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2" aria-label="Menú">
+        <div class="hamburger-icon space-y-1.5">
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+          <span class="block w-4 h-0.5 bg-white transition-all duration-300"></span>
+        </div>
       </button>
     </nav>
 
-    <!-- Menú Móvil -->
-    <div id="mobile-menu"
-      class="hidden md:hidden flex flex-col items-center bg-background/95 backdrop-blur-md text-white px-6 pb-4 space-y-4">
-      <a href="#inicio"
-        class="mobile-nav-link w-full py-2 px-4 hover:bg-primary/20 rounded-lg transition-all">Inicio</a>
-      <a href="#sobremi" class="mobile-nav-link w-full py-2 px-4 hover:bg-primary/20 rounded-lg transition-all">Sobre
-        mí</a>
-      <a href="#habilidades"
-        class="mobile-nav-link w-full py-2 px-4 hover:bg-primary/20 rounded-lg transition-all">Habilidades</a>
-      <a href="#proyectos"
-        class="mobile-nav-link w-full py-2 px-4 hover:bg-primary/20 rounded-lg transition-all">Proyectos</a>
-      <a href="#contacto"
-        class="mobile-nav-link w-full py-2 px-4 hover:bg-primary/20 rounded-lg transition-all">Contacto</a>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/98 backdrop-blur-xl border-t border-border">
+      <div class="flex flex-col px-6 py-6 space-y-1">
+        <a href="#inicio"      class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Inicio</a>
+        <a href="#sobremi"     class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Sobre mí</a>
+        <a href="#habilidades" class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Habilidades</a>
+        <a href="#proyectos"   class="mobile-nav-link py-3 px-4 rounded-xl text-muted hover:text-white hover:bg-card transition-all">Proyectos</a>
+        <a href="#contacto"    class="mobile-nav-link mt-2 py-3 px-4 rounded-xl bg-primary text-white font-semibold text-center transition-all">Contacto</a>
+      </div>
     </div>
   </header>
 
 
-  <!-- INICIO -->
-  <main id="inicio" class="min-h-screen flex items-center bg-background text-left pt-20 relative overflow-hidden">
-    <!-- Partículas de fondo -->
+  <!-- ─────────────── HERO ─────────────── -->
+  <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Background elements -->
     <div class="particles-container absolute inset-0 z-0"></div>
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay:2s"></div>
+      <!-- Grid pattern -->
+      <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
 
-    <div
-      class="max-w-6xl w-full mx-auto px-8 md:px-16 flex flex-col-reverse md:flex-row items-center justify-center gap-16 z-10 relative">
-      <!-- Texto -->
-      <div class="space-y-8 max-w-xl md:ml-12 hero-content">
-        <h1 class="text-4xl md:text-6xl font-bold text-white">
-          Hello, It's Me <br>
-          <span class="gradient-text">Laia Carrillo</span>
-        </h1>
-        <h2 class="text-2xl text-primary font-semibold typing"> Desarrolladora Full-Stack</h2>
-        <p class="text-gray-300 text-lg">
-          Transformando ideas en código y código en soluciones digitales que impactan.
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-32 md:py-0 w-full grid md:grid-cols-2 gap-16 items-center">
+      <!-- Text -->
+      <div class="hero-content space-y-7">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-accent text-sm font-medium">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Disponible para nuevas oportunidades
+        </div>
+
+        <div>
+          <p class="text-muted text-lg mb-2 font-medium">Hola, soy</p>
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl leading-tight text-white">
+            Laia<br>
+            <span class="text-gradient">Carrillo</span>
+          </h1>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-px bg-primary"></div>
+          <p class="text-accent font-semibold text-lg typing-role">Desarrolladora Full Stack</p>
+        </div>
+
+        <p class="text-muted text-base leading-relaxed max-w-md">
+          Construyo soluciones digitales eficientes e innovadoras. Apasionada por el código limpio, la accesibilidad y el aprendizaje continuo.
         </p>
 
-        <!-- Botones -->
-        <div class="flex flex-wrap gap-4">
-          <a href="#contacto"
-            class="inline-block bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/50 portfolio-btn">
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#proyectos" class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-semibold py-3 px-7 rounded-full transition-all duration-300 shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5">
+            Ver mis proyectos
+            <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <a href="#contacto" class="inline-flex items-center gap-2 border border-border hover:border-primary/50 text-white font-semibold py-3 px-7 rounded-full transition-all duration-300 hover:bg-card hover:-translate-y-0.5">
             Contáctame
           </a>
-          <a href="#proyectos"
-            class="inline-block bg-transparent border-2 border-primary text-primary hover:bg-primary/10 font-bold py-3 px-8 rounded-full transition-all duration-300 portfolio-btn-alt">
-            Ver Proyectos
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-4 pt-2">
+          <a href="https://github.com/Laiacarrillo" target="_blank" class="text-muted hover:text-white transition-colors" aria-label="GitHub">
+            <i class="fab fa-github text-xl"></i>
           </a>
+          <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" target="_blank" class="text-muted hover:text-white transition-colors" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+          <a href="https://www.instagram.com/laiacarrillo._/" target="_blank" class="text-muted hover:text-white transition-colors" aria-label="Instagram">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <div class="w-px h-5 bg-border mx-1"></div>
+          <span class="text-muted text-sm flex items-center gap-1.5">
+            <i class="fas fa-map-marker-alt text-primary text-xs"></i>
+            Barcelona, España
+          </span>
         </div>
       </div>
 
-      <!-- Imagen -->
-      <div class="flex justify-center md:mr-12 mb-8 md:mb-0 hero-image">
-        <div class="rounded-full p-2 bg-gradient-to-br from-primary to-secondary avatar-circle glow-effect"
-          style="padding: 8px; margin: 20px;">
-          <div class="rounded-full border-4 border-white overflow-hidden avatar">
-            <img src="img/Portafolio.png" alt="Laia" class="w-64 h-64 object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- SOBRE MÍ -->
-  <section id="sobremi" class="py-20 bg-background flex items-center px-5 animate-section relative">
-    <!-- Decoración de fondo -->
-    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-bl-full -z-10 blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-primary/5 rounded-tr-full -z-10 blur-3xl"></div>
-
-    <div class="max-w-7xl w-full mx-auto flex flex-wrap md:flex-nowrap items-center">
-      <!-- Imagen a la izquierda con animación -->
-      <div class="w-full md:w-1/3 flex justify-center mb-10 md:mb-0 about-image animate-item">
+      <!-- Avatar -->
+      <div class="flex justify-center md:justify-end hero-image">
         <div class="relative">
-          <div
-            class="absolute from-primary to-secondary rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt">
-          </div>
-          <img src="img/SobreMi.png" alt="Foto" class="" />
-        </div>
-      </div>
+          <!-- Decorative ring -->
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-secondary/20 blur-2xl scale-110"></div>
+          <!-- Dashed ring -->
+          <div class="absolute -inset-4 rounded-full border border-dashed border-primary/20 animate-spin-slow"></div>
+          <!-- Dots -->
+          <div class="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-accent shadow-glow"></div>
+          <div class="absolute -bottom-3 -left-3 w-4 h-4 rounded-full bg-primary shadow-glow-sm"></div>
 
-      <!-- Texto a la derecha con animación -->
-      <div class="w-full md:w-2/3 md:pl-16 about-content">
-        <div class="flex items-center mb-4">
-          <div class="h-1 w-12 bg-primary rounded-full mr-4"></div>
-          <span class="text-primary font-medium">DESCUBRE MÁS</span>
-        </div>
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 about-title">
-          <span class="title-word animate-item">Sobre</span>
-          <span class="text-primary title-word animate-item">Mí</span>
-        </h2>
-        <p class="text-lg leading-relaxed text-justify about-text animate-item mb-6">
-          Profesional comprometida con el desarrollo de soluciones digitales, con experiencia
-          como desarrolladora <span class="font-bold text-purple-400">Full-Stack</span>. Mi objetivo es
-          contribuir al diseño y construcción
-          de <span class="font-bold text-purple-400">plataformas tecnológicas</span> funcionales, accesibles y
-          de alto impacto.
-        </p>
-        <p class="text-lg leading-relaxed text-justify about-text animate-item mb-6">
-          <span class="font-bold text-purple-400">Me destaco</span> por mi disciplina, pensamiento analítico y
-          capacidad de trabajo en equipo.
-          Aplico buenas prácticas de accesibilidad, diseño responsivo y estructura de código limpio.
-        </p>
-        <p class="text-lg leading-relaxed text-justify about-text animate-item">
-          <span class="font-bold text-purple-400">Me motiva</span> aprender constantemente y aportar al
-          crecimiento de los entornos digitales en los que participo.
-        </p>
+          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-primary/40 shadow-glow-lg">
+            <img src="img/Portafolio.png" alt="Laia Carrillo" class="w-full h-full object-cover" />
+            <!-- Overlay shimmer -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent"></div>
+          </div>
 
-        <!-- Estadísticas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
-          <div class="stat-card">
-            <div class="text-3xl font-bold text-primary counter" data-target="15">15</div>
-            <div class="text-sm text-gray-400">Proyectos Completados</div>
-          </div>
-          <div class="stat-card">
-            <div class="text-3xl font-bold text-primary counter" data-target="9">9</div>
-            <div class="text-sm text-gray-400">Meses de Experiencia</div>
-          </div>
-          <div class="stat-card">
-            <div class="text-3xl font-bold text-primary counter" data-target="12">12</div>
-            <div class="text-sm text-gray-400">Tecnologías Dominadas</div>
-          </div>
-          <div class="stat-card">
-            <div class="text-3xl font-bold text-primary counter" data-target="100">100</div>
-            <div class="text-sm text-gray-400">% Compromiso</div>
+          <!-- Badge floating -->
+          <div class="absolute -bottom-4 -right-4 bg-card border border-border rounded-2xl px-4 py-2.5 shadow-lg">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-trophy text-yellow-400 text-sm"></i>
+              <span class="text-xs text-white font-semibold">Ganadora AWS Hackathon 2025</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <script src="script.js"> </script>
-
-  <!-- HABILIDADES -->
-  <section id="habilidades" class="py-20 bg-background px-6 sm:px-10 md:px-16 relative">
-    <!-- Decoración de fondo -->
-    <div class="absolute top-1/4 left-0 w-1/3 h-1/3 bg-primary/5 rounded-tr-full -z-10 blur-3xl"></div>
-
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <div class="h-1 w-12 bg-primary rounded-full mr-4"></div>
-          <span class="text-primary font-medium">MIS CAPACIDADES</span>
-          <div class="h-1 w-12 bg-primary rounded-full ml-4"></div>
-        </div>
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 about-title">Habilidades</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Combinando conocimientos técnicos y habilidades interpersonales para
-          crear soluciones digitales efectivas.</p>
-      </div>
-
-      <!-- Tabs para cambiar entre habilidades técnicas y blandas -->
-      <div class="mb-10">
-        <div class="flex justify-center space-x-4">
-          <button id="tab-tech"
-            class="tab-btn active px-6 py-2 rounded-full bg-primary text-white font-medium transition-all">Técnicas</button>
-          <button id="tab-soft"
-            class="tab-btn px-6 py-2 rounded-full bg-darkAccent text-white font-medium transition-all">Blandas</button>
-        </div>
-      </div>
-
-      <!-- Contenido de habilidades técnicas -->
-      <div id="tech-skills" class="tab-content grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        <!-- HTML -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.simpleicons.org/html5" alt="HTML" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">HTML</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Estructura semántica y accesible para sitios web modernos.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CSS -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.simpleicons.org/css3" alt="CSS" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">CSS</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Diseños responsivos y animaciones fluidas para experiencias visuales atractivas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Java -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
-                class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">Java</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Desarrollo de aplicaciones robustas y escalables con orientación a objetos.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Python -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-                alt="Python" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">Python</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Análisis de datos, automatización y desarrollo backend eficiente.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- JavaScript -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">JavaScript</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Interactividad dinámica y experiencias de usuario modernas en aplicaciones web.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- MySQL -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">MySQL</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Gestión eficiente de bases de datos relacionales y optimización de consultas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- React.js -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.simpleicons.org/react" alt="React.js" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">React.js</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Interfaces de usuario componetizadas y reactivas para aplicaciones modernas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spring Boot -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div
-              class="flip-card-front bg-[#1e293b] rounded-xl p-6 flex flex-col items-center justify-center shadow-lg">
-              <img src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" class="w-12 h-12 mb-4" />
-              <p class="text-white text-lg font-medium">Spring Boot</p>
-            </div>
-            <div
-              class="flip-card-back bg-primary rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg w-full h-full">
-              <p class="text-white text-sm sm:text-base leading-relaxed font-medium break-words text-center">
-                Desarrollo rápido de microservicios y APIs REST con Java.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contenido de habilidades blandas (oculto inicialmente) -->
-      <div id="soft-skills" class="tab-content hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        <!-- Trabajo en equipo -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-users text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Trabajo en Equipo</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 95%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Colaboración efectiva y comunicación clara en entornos de equipo.</p>
-        </div>
-
-        <!-- Resolución de problemas -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-puzzle-piece text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Resolución de Problemas</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 90%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Enfoque analítico para identificar y solucionar problemas complejos.</p>
-        </div>
-
-        <!-- Comunicación -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-comments text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Comunicación</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 85%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Expresión clara de ideas y escucha activa en entornos profesionales.</p>
-        </div>
-
-        <!-- Adaptabilidad -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-sync-alt text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Adaptabilidad</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 88%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Flexibilidad para adaptarse a nuevos entornos y tecnologías.</p>
-        </div>
-
-        <!-- Gestión del tiempo -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-clock text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Gestión del Tiempo</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 92%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Organización eficiente de tareas y cumplimiento de plazos.</p>
-        </div>
-
-        <!-- Creatividad -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-lightbulb text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Creatividad</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 87%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Pensamiento innovador para encontrar soluciones originales.</p>
-        </div>
-
-        <!-- Liderazgo -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-crown text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Liderazgo</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 80%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Capacidad para guiar equipos y motivar a los compañeros.</p>
-        </div>
-
-        <!-- Aprendizaje continuo -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-book text-3xl text-primary"></i>
-          </div>
-          <h3 class="text-lg font-semibold mt-4">Aprendizaje Continuo</h3>
-          <div class="skill-bar">
-            <div class="skill-progress" style="width: 98%"></div>
-          </div>
-          <p class="text-sm text-gray-400 mt-2">Dedicación constante a adquirir nuevos conocimientos y habilidades.</p>
-        </div>
-      </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted animate-bounce-slow">
+      <span class="text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-muted to-transparent"></div>
     </div>
   </section>
 
 
+  <!-- ─────────────── SOBRE MÍ ─────────────── -->
+  <section id="sobremi" class="py-28 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-bl-full blur-3xl -z-10"></div>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos" class="py-20 bg-primary/10 px-6 relative">
-    <!-- Decoración de fondo -->
-    <div class="absolute top-0 right-0 w-1/4 h-1/4 bg-primary/10 rounded-bl-full -z-10 blur-3xl"></div>
-
-    <div class="max-w-6xl mx-auto text-center text-white">
-      <div class="flex items-center justify-center mb-4">
-        <div class="h-1 w-12 bg-primary rounded-full mr-4"></div>
-        <span class="text-primary font-medium">MI TRABAJO</span>
-        <div class="h-1 w-12 bg-primary rounded-full ml-4"></div>
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Section header -->
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Sobre mí</span>
       </div>
-      <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 about-title">Proyectos</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto mb-12">Explora algunos de mis trabajos más recientes, donde he aplicado
-        mis conocimientos y habilidades para crear soluciones digitales efectivas.</p>
+      <h2 class="font-display text-4xl md:text-5xl text-white mb-16">Mi historia</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <!-- Proyecto 1 -->
-        <div
-          class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl project-card group">
-          <div class="relative overflow-hidden">
-            <img src="img/ACME.jpg" alt="Vista previa del proyecto 1"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
-              Back-end
-            </div>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300">
-            </div>
+      <div class="grid md:grid-cols-5 gap-16 items-start">
+        <!-- Left: Image + Certifications -->
+        <div class="md:col-span-2 space-y-6 about-image animate-item">
+          <div class="relative rounded-2xl overflow-hidden border border-border">
+            <img src="img/ImagenProgramando.jpeg" alt="Laia Carrillo" class="w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
           </div>
-          <div class="p-6 text-left">
-            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">ACME Education
-              desarrolló el proyecto SISGESA</h3>
-            <p class="text-gray-300 mb-4">Aplicación web para organizar y gestionar tareas con autenticación de
-              usuarios, categorías personalizables y estadísticas de productividad.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Python</span>
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Json</span>
-            </div>
-            <a href="https://github.com/Laiacarrillo/PROYECTO_ACME" target="_blank" rel="noopener noreferrer"
-              class="inline-block bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 w-full text-center">
-              Ver proyecto
-            </a>
-          </div>
-        </div>
 
-        <!-- Proyecto 2 -->
-        <div
-          class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl project-card group">
-          <div class="relative overflow-hidden">
-            <img src="img/hotel.jpg" alt="Vista previa del proyecto 2"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
-              Full-Stack
-            </div>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300">
-            </div>
-          </div>
-          <div class="p-6 text-left">
-            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">Reservaciones del
-              Hotel el Rincón de Camila</h3>
-            <p class="text-gray-300 mb-4">Sitio web responsive que permite consultar, reservar y cancelar habitaciones.
-              Usa `json-server` para guardar datos y está desplegado en GitHub Pages.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">HTML/CSS</span>
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">JavaScript</span>
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Firebase</span>
-            </div>
-            <a href="https://laiacarrillo.github.io/Proyecto_JavaScript/" target="_blank" rel="noopener noreferrer"
-              class="inline-block bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 w-full text-center">
-              Ver proyecto
-            </a>
-          </div>
-        </div>
-
-        <!-- Proyecto 3 -->
-        <div
-          class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl project-card group">
-          <div class="relative overflow-hidden">
-            <img src="img/alquilerPeliculas.jpg" alt="Vista previa del proyecto 3"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
-              Back-end
-            </div>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300">
-            </div>
-          </div>
-          <div class="p-6 text-left">
-            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">El Sakila</h3>
-            <p class="text-gray-300 mb-4">Sistema de Alquiler de Películas, usa la base de datos Sakila para consultas
-              SQL, funciones, triggers y eventos, enfocados en gestionar alquileres, clientes y películas.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">StarUML</span>
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">MySQL</span>
-            </div>
-            <a href="https://github.com/Laiacarrillo/Examen-Mysql-2.git" target="_blank" rel="noopener noreferrer"
-              class="inline-block bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 w-full text-center">
-              Ver proyecto
-            </a>
-          </div>
-        </div>
-
-        <!-- Proyecto 4 -->
-        <div
-          class="bg-background rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl project-card group">
-          <div class="relative overflow-hidden">
-            <img src="img/futbol.webp" alt="Vista previa del proyecto 4"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 m-2 rounded-full text-sm">
-              Back-end
-            </div>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300">
-            </div>
-          </div>
-          <div class="p-6 text-left">
-            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">Estructura de Datos
-            </h3>
-            <p class="text-gray-300 mb-4">Programa que permite registrar jugadores de fútbol y las ligas en las que han
-              participado. Luego, permite consultar y listar los jugadores que han estado en una liga específica.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Java</span>
-              <span class="bg-primary bg-opacity-20 text-primary text-xs px-2 py-1 rounded-full">Firebase</span>
-            </div>
-            <a href="https://github.com/Laiacarrillo/EstructuraDatosJava" target="_blank" rel="noopener noreferrer"
-              class="inline-block bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 w-full text-center">
-              Ver proyecto
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Botón para ver más proyectos -->
-      <div class="mt-12">
-        <a href="https://github.com/Laiacarrillo" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/50">
-          <span>Ver más en GitHub</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-24 bg-background px-6 relative">
-    <!-- Decoración de fondo -->
-    <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-tl-full -z-10 blur-3xl"></div>
-
-    <div class="max-w-6xl mx-auto text-white">
-      <div class="text-center mb-16">
-        <div class="flex items-center justify-center mb-4">
-          <div class="h-1 w-12 bg-primary rounded-full mr-4"></div>
-          <span class="text-primary font-medium">HABLEMOS</span>
-          <div class="h-1 w-12 bg-primary rounded-full ml-4"></div>
-        </div>
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 about-title">Contáctame</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">¿Tienes un proyecto en mente o quieres colaborar? Estoy a solo un
-          mensaje de distancia.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- Formulario de contacto con Formspree -->
-        <div class="bg-darkAccent p-8 rounded-2xl shadow-lg">
-          <h3 class="text-2xl font-bold mb-6">Envíame un mensaje</h3>
-          <form action="https://formspree.io/f/xyzwykel" method="POST" class="space-y-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Nombre</label>
-                <input type="text" id="name" name="name"
-                  class="w-full px-4 py-3 bg-background border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Tu nombre" required>
+          <!-- Certifications card -->
+          <div class="bg-card rounded-2xl border border-border p-5 space-y-3">
+            <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">Certificaciones</p>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fas fa-music text-primary text-xs"></i>
               </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                <input type="email" id="email" name="email"
-                  class="w-full px-4 py-3 bg-background border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="tu@email.com" required>
+                <p class="text-white text-sm font-medium">Técnico en Música Clásica</p>
+                <p class="text-muted text-xs">Col. Artístico Musical Pentagrama · 2020–2023</p>
               </div>
             </div>
-            <div>
-              <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Asunto</label>
-              <input type="text" id="subject" name="subject"
-                class="w-full px-4 py-3 bg-background border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Asunto del mensaje" required>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fas fa-code text-primary text-xs"></i>
+              </div>
+              <div>
+                <p class="text-white text-sm font-medium">Técnico Laboral en Programación</p>
+                <p class="text-muted text-xs">Campuslands · 2024–2025</p>
+              </div>
             </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Mensaje</label>
-              <textarea id="message" name="message" rows="4"
-                class="w-full px-4 py-3 bg-background border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Tu mensaje..." required></textarea>
-            </div>
-            <button type="submit"
-              class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-primary/50">
-              Enviar Mensaje
-            </button>
-          </form>
-        </div>
-        
-        <!-- Información de contacto -->
-        <div class="space-y-8">
-        <div class="contact-info-card">
-          <div class="contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold">Email</h4>
-            <p class="text-gray-400">Laiacarrilloes@gmail.com</p>
-            <a href="mailto:laiacarrilloes@gmail.com" class="text-primary hover:text-secondary transition-colors">Enviar
-              email</a>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fas fa-robot text-primary text-xs"></i>
+              </div>
+              <div>
+                <p class="text-white text-sm font-medium">Bootcamp Inteligencia Artificial</p>
+                <p class="text-muted text-xs">Talento Tech · 2025</p>
+              </div>
             </div>
           </div>
 
-          <div class="contact-info-card">
-            <div class="contact-icon">
-              <i class="fas fa-phone-alt"></i>
+          <!-- Languages -->
+          <div class="bg-card rounded-2xl border border-border p-5">
+            <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">Idiomas</p>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-white">Catalán</span>
+                <span class="text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-full">Nativo</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-white">Inglés</span>
+                <span class="text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-full">Intermedio</span>
+              </div>
             </div>
-          <div>
-            <h4 class="text-lg font-semibold">Teléfono</h4>
-            <p class="text-gray-400">+57 310 570 8389</p>
-            <a href="tel:+573105708389" class="text-primary hover:text-secondary transition-colors">Llamar ahora</a>
           </div>
         </div>
 
-        <div class="contact-info-card">
-          <div class="contact-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
+        <!-- Right: Bio + Experience + Stats -->
+        <div class="md:col-span-3 space-y-8 about-text animate-item">
+          <!-- Profile bio -->
           <div>
-            <h4 class="text-lg font-semibold">Bucaramanga</h4>
-            <p class="text-gray-400">Colombia</p>
+            <p class="text-white/90 text-base leading-relaxed mb-4">
+              Soy <span class="text-accent font-semibold">Desarrolladora Full Stack</span> con alto sentido de disciplina, compromiso y aprendizaje continuo. Cuento con nivel intermedio en Python, HTML, CSS (Tailwind, Bulma), JavaScript (TypeScript), bases de datos MySQL y PostgreSQL, y Java con Spring Boot.
+            </p>
+            <p class="text-muted text-base leading-relaxed">
+              Manejo herramientas como Azure DevOps, Trello y Jira, lo que me permite contribuir al desarrollo de soluciones tecnológicas eficientes mientras continúo fortaleciendo mi crecimiento profesional.
+            </p>
           </div>
-        </div>
 
-        <!-- Redes sociales -->
-        <div class="mt-8">
-          <h4 class="text-lg font-semibold mb-4">Sígueme en redes sociales</h4>
-          <div class="flex space-x-4">
-            <a href="https://www.instagram.com/laiacarrillo._/" class="social-icon-animated" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" class="social-icon-animated"
-            aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/Laiacarrillo" class="social-icon-animated" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://mail.google.com/mail/u/0/?fs=1&to=laiacarrilloes@gmail.com&su=Contacto...&tf=cm"
-          class="social-icon-animated" aria-label="Email">
-          <i class="fas fa-envelope"></i>
-            </a>
+          <!-- Experience Timeline -->
+          <div>
+            <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-5">Experiencia destacada</p>
+            <div class="space-y-4">
+              <!-- Item 1 -->
+              <div class="relative pl-5 border-l border-border hover:border-primary transition-colors duration-300 pb-4">
+                <div class="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-primary shadow-glow-sm"></div>
+                <p class="text-white font-semibold text-sm">Prácticas en Globant</p>
+                <p class="text-muted text-xs mb-1.5">Desarrollo de Software · 1 año</p>
+                <p class="text-muted text-xs leading-relaxed">Desarrollo, diseño y ejecución de casos de prueba priorizando calidad y eficiencia del negocio.</p>
+              </div>
+              <!-- Item 2 -->
+              <div class="relative pl-5 border-l border-border hover:border-primary transition-colors duration-300 pb-4">
+                <div class="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-accent shadow-glow-sm"></div>
+                <p class="text-white font-semibold text-sm">🏆 Ganadora Hackathon AWS 2025</p>
+                <p class="text-muted text-xs mb-1.5">Solución en Python</p>
+                <p class="text-muted text-xs leading-relaxed">Desarrollo de solución tecnológica premiada a nivel nacional en competencia AWS.</p>
+              </div>
+              <!-- Item 3 -->
+              <div class="relative pl-5 border-l border-border hover:border-primary transition-colors duration-300 pb-4">
+                <div class="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-primary shadow-glow-sm"></div>
+                <p class="text-white font-semibold text-sm">Desarrollo de Interfaces Web</p>
+                <p class="text-muted text-xs mb-1.5">React + HTML5 + CSS Frameworks</p>
+                <p class="text-muted text-xs leading-relaxed">Creación de interfaces responsivas con diseño WCAG e integración SCORM en plataformas LMS.</p>
+              </div>
+              <!-- Item 4 -->
+              <div class="relative pl-5 border-l border-border hover:border-primary transition-colors duration-300">
+                <div class="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-accent shadow-glow-sm"></div>
+                <p class="text-white font-semibold text-sm">Docente de Música Inclusiva</p>
+                <p class="text-muted text-xs mb-1.5">Metodologías inclusivas y accesibles</p>
+                <p class="text-muted text-xs leading-relaxed">Enseñanza de música a niños con discapacidad física y adultos, adaptando metodologías personalizadas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary counter" data-target="15">0</div>
+              <div class="text-xs text-muted mt-1">Proyectos</div>
+            </div>
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary counter" data-target="12">0</div>
+              <div class="text-xs text-muted mt-1">Meses exp.</div>
+            </div>
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary counter" data-target="12">0</div>
+              <div class="text-xs text-muted mt-1">Tecnologías</div>
+            </div>
+            <div class="stat-card text-center p-4 bg-card rounded-2xl border border-border">
+              <div class="text-3xl font-display font-bold text-primary">∞</div>
+              <div class="text-xs text-muted mt-1">Curiosidad</div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────── HABILIDADES ─────────────── -->
+  <section id="habilidades" class="py-28 bg-surface relative">
+    <div class="absolute top-0 left-0 w-1/3 h-full bg-primary/3 blur-3xl -z-10 rounded-r-full"></div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Habilidades</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+        <h2 class="font-display text-4xl md:text-5xl text-white">Mi stack técnico</h2>
+        <p class="text-muted max-w-xs text-sm leading-relaxed">Tecnologías que domino y aplico en mis proyectos del día a día.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-3 mb-10">
+        <button id="tab-tech" class="tab-btn active px-5 py-2 rounded-full text-sm font-semibold transition-all">Técnicas</button>
+        <button id="tab-soft" class="tab-btn px-5 py-2 rounded-full text-sm font-semibold transition-all">Blandas</button>
+      </div>
+
+      <!-- Tech Skills -->
+      <div id="tech-skills" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- n8n -->
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1k00R713k7ZYo_9QzEO7PIgUR8Ij3iguP_w&s" alt="n8n" class="w-10 h-10" />
+      <p class="text-white text-sm font-semibold">n8n</p>
+    </div>
+    <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+      <p class="text-white text-xs text-center leading-relaxed">
+        Automatización de workflows, integraciones y APIs sin código.
+      </p>
     </div>
   </div>
 </div>
-</section>
+           <!-- ChatBase -->
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+      <img src="https://d1wqzb5bdbcre6.cloudfront.net/e7ecc5b6641e09aa0d7f98391f5ab5fb2c23cf9d68d7c80d116c84322eeae00a/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a6446387855586459626a64485131646a4e314e504e57317866475a7358327870646d5666546e4e4f575856724e545a454d5764466232566b59546378536d355a6445677a3030736f593549574f42/636c69656e743d4150505f4d41524b4554504c414345
+      " alt="n8n" class="w-10 h-10" />
+      <p class="text-white text-sm font-semibold">Chatbase</p>
+    </div>
+    <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+      <p class="text-white text-xs text-center leading-relaxed">
+        Automatización de workflows, integraciones y APIs sin código.
+      </p>
+    </div>
+  </div>
+</div>
+        <!-- HTML -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/html5" alt="HTML5" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">HTML5</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Estructura semántica y accesible para webs modernas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- CSS -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://educast.library.gatech.edu/static/css-logo-ac2736c00cb6dc828b06440647cf86a1.png" alt="CSS3" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">CSS3</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Diseños responsivos y animaciones fluidas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- JavaScript -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">JavaScript</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Interactividad dinámica y experiencias modernas en la web.</p>
+            </div>
+          </div>
+        </div>
+        <!-- TypeScript -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/typescript" alt="TypeScript" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">TypeScript</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">JavaScript tipado para proyectos escalables y seguros.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Python -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/python" alt="Python" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">Python</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Análisis de datos, automatización y backend eficiente.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Java -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">Java</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Aplicaciones robustas con orientación a objetos.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Spring Boot -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/springboot" alt="Spring Boot" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">Spring Boot</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">APIs REST y backend empresarial con Java.</p>
+            </div>
+          </div>
+        </div>
+        <!-- MySQL -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/mysql" alt="MySQL" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">MySQL</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Bases de datos relacionales y consultas SQL optimizadas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- PostgreSQL -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">PostgreSQL</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Gestión avanzada de datos estructurados y noSQL.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tailwind -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">Tailwind</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Diseño utilitario rápido y consistente.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Git -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://cdn.simpleicons.org/git" alt="Git" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">Git</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">Control de versiones y colaboración en equipo.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Azure DevOps -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front bg-card rounded-2xl border border-border p-5 flex flex-col items-center justify-center gap-3 hover:border-primary/40 transition-colors">
+              <img src="https://logos-world.net/wp-content/uploads/2024/10/Azure-DevOps-Logo.jpg" alt="Azure DevOps" class="w-10 h-10" />
+              <p class="text-white text-sm font-semibold">Azure DevOps</p>
+            </div>
+            <div class="flip-card-back bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 flex items-center justify-center">
+              <p class="text-white text-xs text-center leading-relaxed">CI/CD, gestión de proyectos y pipelines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
 
-  <!-- FOOTER -->
-  <footer class="bg-primary py-6 text-center text-white">
-    <div>
-      <p>© 2025 Laia Dev. Todos los derechos reservados.</p>
-      <p class="text-sm mt-2 text-white/70">Desarrolladora Full-Stack | Creando soluciones digitales</p>
+      <!-- Soft Skills -->
+      <div id="soft-skills" class="hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-puzzle-piece text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Resolución de Problemas</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
+          <p class="text-muted text-xs mt-2">Análisis y soluciones creativas ante desafíos complejos.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-users text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Trabajo en Equipo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
+          <p class="text-muted text-xs mt-2">Colaboración efectiva en entornos multidisciplinarios.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-clock text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Gestión del Tiempo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:88%"></div></div>
+          <p class="text-muted text-xs mt-2">Priorización y entrega puntual en entornos ágiles.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-brain text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Pensamiento Crítico</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:92%"></div></div>
+          <p class="text-muted text-xs mt-2">Evaluación objetiva para tomar las mejores decisiones.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-database text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Gestión de Datos</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+          <p class="text-muted text-xs mt-2">Análisis y gestión de información estructurada.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-book-open text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Aprendizaje Continuo</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:98%"></div></div>
+          <p class="text-muted text-xs mt-2">Actualización constante en tecnologías emergentes.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-lightbulb text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Creatividad</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:87%"></div></div>
+          <p class="text-muted text-xs mt-2">Pensamiento innovador para soluciones originales.</p>
+        </div>
+        <div class="skill-card bg-card rounded-2xl border border-border p-5 text-center hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-hands-helping text-primary text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1">Adaptabilidad</h3>
+          <div class="skill-bar"><div class="skill-progress" style="width:94%"></div></div>
+          <p class="text-muted text-xs mt-2">Flexibilidad ante cambios en proyectos y metodologías.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────── PROYECTOS ─────────────── -->
+  <section id="proyectos" class="py-28 relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-tl-full blur-3xl -z-10"></div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Proyectos</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+        <h2 class="font-display text-4xl md:text-5xl text-white">Mi trabajo</h2>
+        <a href="https://github.com/Laiacarrillo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-muted hover:text-white text-sm font-medium transition-colors group">
+          <i class="fab fa-github"></i>
+          Ver todo en GitHub
+          <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <!-- Proyecto 1 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/ACME.jpg" alt="ACME SISGESA" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Back-end</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">ACME Education — SISGESA</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Sistema de gestión educativa desarrollado en Python con almacenamiento en JSON. Incluye autenticación de usuarios, gestión de categorías y estadísticas.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Python</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">JSON</span>
+            </div>
+            <a href="https://github.com/Laiacarrillo/PROYECTO_ACME" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fab fa-github text-sm"></i>
+              Ver en GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/LaIA imagen.png" alt="laIA" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset
+            -0 bg-gradient-to-t from-card via-card/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Full-Stack</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">laIA</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Web responsiva para consultar, reservar y cancelar habitaciones. Desplegada en GitHub Pages con json-server para persistencia de datos.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">HTML/Tailwind (CSS)</span>
+                            <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Font Awesome</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">JavaScript</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Firebase</span>
+            </div>
+            <a href="https://github.com/Laiacarrillo/laIA.git" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fab fa-github text-sm"></i>
+              Ver en GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/BugAI.png" alt="BugAI" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Base de Datos</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">BugAI</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Sistema de inteligencia artificial para la gestión de base de datos. Implementa consultas SQL avanzadas, funciones, triggers y eventos para gestionar alquileres y clientes.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Chatbase</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Formspree</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Supabase</span>
+            </div>
+            <a href="https://bug-ai-1-0-0.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+               <i class="fas fa-external-link-alt text-sm"></i>
+              Ver demo
+            </a>
+          </div>
+        </article>
+
+        <!-- Proyecto 4 -->
+        <article class="project-card bg-card rounded-3xl border border-border overflow-hidden hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="img/futbol.webp" alt="Estructura de Datos" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 text-xs font-semibold bg-background/80 backdrop-blur-sm border border-border text-accent px-3 py-1 rounded-full">Back-end</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-white font-display font-bold text-lg mb-2 group-hover:text-accent transition-colors">Estructura de Datos — Fútbol</h3>
+            <p class="text-muted text-sm leading-relaxed mb-4">Programa en Java para registrar jugadores y ligas de fútbol. Permite consultar y listar jugadores por liga específica usando estructuras de datos eficientes.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Java</span>
+              <span class="text-xs bg-primary/10 border border-primary/20 text-accent px-2.5 py-1 rounded-full">Firebase</span>
+            </div>
+            <a href="https://github.com/Laiacarrillo/EstructuraDatosJava" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary hover:bg-secondary px-5 py-2.5 rounded-xl transition-all duration-300 w-full justify-center">
+              <i class="fab fa-github text-sm"></i>
+              Ver en GitHub
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────── CONTACTO ─────────────── -->
+  <section id="contacto" class="py-28 bg-surface relative">
+    <div class="absolute top-0 left-0 w-1/3 h-full bg-primary/5 blur-3xl -z-10 rounded-r-full"></div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-10 h-0.5 bg-primary"></div>
+        <span class="text-primary text-sm font-semibold tracking-widest uppercase">Contacto</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+        <h2 class="font-display text-4xl md:text-5xl text-white">Hablemos</h2>
+        <p class="text-muted max-w-xs text-sm leading-relaxed">¿Tienes un proyecto en mente? Estoy a un mensaje de distancia.</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-10 items-start">
+        <!-- Form -->
+        <div class="md:col-span-3 bg-card rounded-3xl border border-border p-8">
+          <h3 class="text-white font-display font-bold text-xl mb-6">Envíame un mensaje</h3>
+          <form action="https://formspree.io/f/xyzwykel" method="POST" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required
+                  class="w-full px-4 py-3 bg-background border border-border rounded-xl text-white placeholder-muted/50 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required
+                  class="w-full px-4 py-3 bg-background border border-border rounded-xl text-white placeholder-muted/50 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all" />
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Asunto</label>
+              <input type="text" id="subject" name="subject" placeholder="¿En qué puedo ayudarte?" required
+                class="w-full px-4 py-3 bg-background border border-border rounded-xl text-white placeholder-muted/50 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all" />
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-medium text-muted mb-2 tracking-wide uppercase">Mensaje</label>
+              <textarea id="message" name="message" rows="4" placeholder="Cuéntame tu proyecto..." required
+                class="w-full px-4 py-3 bg-background border border-border rounded-xl text-white placeholder-muted/50 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 text-sm">
+              Enviar mensaje
+              <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="md:col-span-2 space-y-4">
+          <a href="mailto:Laiacarrilloes@gmail.com" class="contact-info-card group bg-card rounded-2xl border border-border p-5 flex items-center gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+              <i class="fas fa-envelope text-primary"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted mb-0.5">Email</p>
+              <p class="text-white text-sm font-medium">Laiacarrilloes@gmail.com</p>
+            </div>
+          </a>
+
+          <div class="contact-info-card group bg-card rounded-2xl border border-border p-5 flex items-center gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+              <i class="fas fa-phone text-primary"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted mb-0.5">Teléfono</p>
+              <a href="tel:+34711209934" class="text-white text-sm font-medium">711 20 99 34</a>
+            </div>
+          </div>
+
+          <div class="contact-info-card group bg-card rounded-2xl border border-border p-5 flex items-center gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+              <i class="fas fa-map-marker-alt text-primary"></i>
+            </div>
+            <div>
+              <p class="text-xs text-muted mb-0.5">Ubicación</p>
+              <p class="text-white text-sm font-medium">Barcelona, España</p>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div class="bg-card rounded-2xl border border-border p-5 mt-2">
+            <p class="text-xs font-semibold tracking-widest uppercase text-muted mb-4">Sígueme</p>
+            <div class="flex gap-3">
+              <a href="https://www.instagram.com/laiacarrillo._/" target="_blank" aria-label="Instagram"
+                class="social-icon-animated w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-accent hover:bg-primary hover:text-white transition-all duration-300">
+                <i class="fab fa-instagram text-sm"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" target="_blank" aria-label="LinkedIn"
+                class="social-icon-animated w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-accent hover:bg-primary hover:text-white transition-all duration-300">
+                <i class="fab fa-linkedin-in text-sm"></i>
+              </a>
+              <a href="https://github.com/Laiacarrillo" target="_blank" aria-label="GitHub"
+                class="social-icon-animated w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-accent hover:bg-primary hover:text-white transition-all duration-300">
+                <i class="fab fa-github text-sm"></i>
+              </a>
+              <a href="mailto:Laiacarrilloes@gmail.com" aria-label="Email"
+                class="social-icon-animated w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-accent hover:bg-primary hover:text-white transition-all duration-300">
+                <i class="fas fa-envelope text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────── FOOTER ─────────────── -->
+  <footer class="border-t border-border bg-background py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="#inicio" class="font-display text-xl text-white">laia<span class="text-primary">.</span>dev</a>
+      <p class="text-muted text-sm text-center">© 2025 Laia Vianey Carrillo Estupiñán · Desarrolladora Full Stack</p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/Laiacarrillo" target="_blank" class="text-muted hover:text-white transition-colors text-sm">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/laia-carrillo-18116a322/" target="_blank" class="text-muted hover:text-white transition-colors text-sm">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
     </div>
   </footer>
 
-  <!-- Botón para volver arriba -->
+
+  <!-- Back to Top -->
   <a href="#inicio" id="back-to-top"
-    class="fixed bottom-6 right-6 bg-primary hover:bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible z-50">
-    <i class="fas fa-arrow-up"></i>
+    class="fixed bottom-6 right-6 w-11 h-11 rounded-xl bg-primary hover:bg-secondary text-white flex items-center justify-center transition-all duration-300 shadow-glow opacity-0 invisible z-50">
+    <i class="fas fa-arrow-up text-sm"></i>
   </a>
 
+  <script src="script.js"></script>
 </body>
-
 </html>
